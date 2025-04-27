@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{Multi-Armed Bandit Algorithms}
+\author{你的名字}
+\date{\today}
+\maketitle
+
+\section{Epsilon-Greedy}
+\begin{align*}
+\text{With probability } \epsilon &: \quad a \sim \text{Uniform}(\mathcal{A}) \\
+\text{With probability } 1-\epsilon &: \quad a = \arg\max_{a' \in \mathcal{A}} Q(a')
+\end{align*}
+
+\section{UCB (Upper Confidence Bound)}
+\begin{align*}
+a_t &= \arg\max_{a \in \mathcal{A}} \left( Q(a) + c \sqrt{\frac{\ln t}{N(a)}} \right)
+\end{align*}
+其中：
+\begin{itemize}
+  \item \( Q(a) \)：行動 \(a\) 的估計回報
+  \item \( N(a) \)：行動 \(a\) 被選擇的次數
+  \item \( t \)：目前的總步數
+  \item \( c \)：探索強度參數（通常設定為 \(\sqrt{2}\)）
+\end{itemize}
+
+\section{Softmax}
+\begin{align*}
+P(a) = \frac{e^{Q(a) / \tau}}{\sum_{a' \in \mathcal{A}} e^{Q(a') / \tau}}
+\end{align*}
+其中：
+\begin{itemize}
+  \item \( P(a) \)：選擇行動 \(a\) 的機率
+  \item \( \tau \)：溫度參數（控制隨機性大小，\(\tau \to 0\) 趨近於貪婪選擇）
+\end{itemize}
+
+\section{Thompson Sampling}
+\begin{align*}
+\theta_a &\sim \mathcal{N}(\mu_a, \sigma_a^2) \quad \text{for each action } a \in \mathcal{A} \\
+a_t &= \arg\max_{a \in \mathcal{A}} \theta_a
+\end{align*}
+其中：
+\begin{itemize}
+  \item \(\theta_a\)：從每個行動的後驗分佈中抽樣
+  \item \(\mu_a, \sigma_a^2\)：行動 \(a\) 的目前估計平均值與變異數
+\end{itemize}
+
+\end{document}
+
+    
