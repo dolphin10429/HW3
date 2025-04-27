@@ -1,0 +1,19 @@
+1. Epsilon-Greedy
+Prompt：
+
+「請解釋 Epsilon-Greedy 策略：在每個時間步驟中，以 $\epsilon$ 的機率隨機選擇一個動作（探索），以 $1-\epsilon$ 的機率選擇目前估計回報最高的動作（利用），以在探索與利用之間取得平衡。」
+
+2. UCB (Upper Confidence Bound)
+Prompt：
+
+「請解釋 UCB（Upper Confidence Bound）演算法的原理：如何利用樂觀估計，在行動選擇時考慮每個行動的不確定性，並隨著嘗試次數增加，逐步收斂到最優選擇？」
+
+3. Softmax
+Prompt：
+
+「請解釋 Softmax 行動選擇策略：如何根據每個行動的估計回報，使用溫度參數 $\tau$ 計算機率分佈，並以隨機方式進行選擇？請說明溫度對探索與利用的影響。」
+
+4. Thompson Sampling
+Prompt：
+
+「請解釋 Thompson Sampling 策略：如何為每個行動從其後驗分佈中抽樣，並選擇抽樣結果最高的行動？請描述其如何自然地在探索與利用之間取得平衡。」
